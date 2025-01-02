@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+</head>
+<body>
+    <h1>Loan Calculator</h1>
+    <form action="/calculate" method="post">
+        <label for="loan_amount">Loan Amount:</label>
+        <input type="text" id="loan_amount" name="loan_amount" required><br><br>
+        
+        <label for="loan_term_years">Loan Term (Years):</label>
+        <input type="text" id="loan_term_years" name="loan_term_years" required><br><br>
+        
+        <label for="loan_term_months">Loan Term (Months):</label>
+        <input type="text" id="loan_term_months" name="loan_term_months" required><br><br>
+        
+        <label for="interest_rate">Interest Rate (%):</label>
+        <input type="text" id="interest_rate" name="interest_rate" required><br><br>
+        
+        <label for="compound">Compound:</label>
+        <select id="compound" name="compound">
+            <option value="Monthly (APR)">Monthly (APR)</option>
+        </select><br><br>
+        
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+</html>
