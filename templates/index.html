@@ -1,39 +1,49 @@
+/* index.html */
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Loan Calculator</h1>
-    <form action="/calculate" method="post">
-        <label for="loan_amount">Loan Amount:</label>
-        <input type="text" id="loan_amount" name="loan_amount" required><br><br>
+    <div>
+        <div class="form-group">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+        </div>
 
-        <label for="loan_term_years">Loan Term (Years):</label>
-        <input type="text" id="loan_term_years" name="loan_term_years" required><br><br>
+        <div class="form-group">
+            <label for="loanTermYears">Loan Term (Years):</label>
+            <input type="number" id="loanTermYears" placeholder="Enter loan term in years" required>
+        </div>
 
-        <label for="loan_term_months">Loan Term (Months):</label>
-        <input type="text" id="loan_term_months" name="loan_term_months" required><br><br>
+        <div class="form-group">
+            <label for="loanTermMonths">Loan Term (Months):</label>
+            <input type="number" id="loanTermMonths" placeholder="Enter loan term in months" required>
+        </div>
 
-        <label for="interest_rate">Interest Rate (%):</label>
-        <input type="text" id="interest_rate" name="interest_rate" required><br><br>
+        <div class="form-group">
+            <label for="interestRate">Interest Rate (%):</label>
+            <input type="number" id="interestRate" step="0.01" placeholder="Enter interest rate" required>
+        </div>
 
-        <label for="compound">Compound:</label>
-        <select id="compound" name="compound">
-            <option value="Monthly (APR)">Monthly (APR)</option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="compound">Compound:</label>
+            <select id="compound">
+                <option value="Monthly">Monthly (APR)</option>
+            </select>
+        </div>
 
-        <button type="submit">Calculate</button>
-    </form>
+        <button id="calculateButton">Calculate</button>
+        <button id="clearButton">Clear</button>
 
-    {% if monthly_payment %}
-        <h2>Monthly Payment: {{ monthly_payment }}</h2>
-    {% endif %}
+        <div id="result" class="result"></div>
+        <div id="error" class="error"></div>
+    </div>
 
-    {% if error %}
-        <h2 style="color: red;">Error: {{ error }}</h2>
-    {% endif %}
+    <script src="script.js"></script>
 </body>
 </html>
