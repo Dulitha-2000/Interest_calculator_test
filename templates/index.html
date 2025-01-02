@@ -10,22 +10,30 @@
     <form action="/calculate" method="post">
         <label for="loan_amount">Loan Amount:</label>
         <input type="text" id="loan_amount" name="loan_amount" required><br><br>
-        
+
         <label for="loan_term_years">Loan Term (Years):</label>
         <input type="text" id="loan_term_years" name="loan_term_years" required><br><br>
-        
+
         <label for="loan_term_months">Loan Term (Months):</label>
         <input type="text" id="loan_term_months" name="loan_term_months" required><br><br>
-        
+
         <label for="interest_rate">Interest Rate (%):</label>
         <input type="text" id="interest_rate" name="interest_rate" required><br><br>
-        
+
         <label for="compound">Compound:</label>
         <select id="compound" name="compound">
             <option value="Monthly (APR)">Monthly (APR)</option>
         </select><br><br>
-        
+
         <button type="submit">Calculate</button>
     </form>
+
+    {% if monthly_payment %}
+        <h2>Monthly Payment: {{ monthly_payment }}</h2>
+    {% endif %}
+
+    {% if error %}
+        <h2 style="color: red;">Error: {{ error }}</h2>
+    {% endif %}
 </body>
 </html>

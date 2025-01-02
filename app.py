@@ -20,15 +20,15 @@ def calculate():
         if compound_frequency == "Monthly (APR)":
             monthly_rate = interest_rate / 12
         else:
-            return "Currently only Monthly (APR) is supported."
+            return render_template('index.html', error="Currently only Monthly (APR) is supported.")
 
         if total_months == 0:
-            return "Loan term cannot be zero."
+            return render_template('index.html', error="Loan term cannot be zero.")
 
         monthly_payment = (loan_amount * monthly_rate) / (1 - (1 + monthly_rate) ** -total_months)
-        return f"Your monthly payment is: ${monthly_payment:.2f}"
+        return render_template('index.html', monthly_payment=f"${monthly_payment:.2f}")
     except ValueError:
-        return "Please enter valid numerical values."
+        return render_template('index.html', error="Please enter valid numerical values.")
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
